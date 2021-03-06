@@ -1,11 +1,12 @@
+def PATH
 pipeline {
     agent any
     
     stages {
         stage('Find app') {
             steps {
-                sh 'pwd'
-                sh 'ls -la'
+                sh "PATH = $(pwd)"
+                echo $PATH
             }
         }
         stage('Test') {
