@@ -5,6 +5,7 @@ pipeline {
         stage('Find app') {
             steps {
                 sh 'pwd'
+                sh 'ls -la'
             }
         }
         stage('Test') {
