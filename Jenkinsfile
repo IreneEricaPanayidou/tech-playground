@@ -1,10 +1,11 @@
 pipeline {
     agent any
-
+    def workspace = pwd()
+    
     stages {
         stage('Find app') {
             steps {
-                pwd()
+                echo $workspace
             }
         }
         stage('Test') {
