@@ -5,13 +5,19 @@ pipeline {
     stages {
         stage('Find app') {
             steps {
-                sh "PATH = $(pwd)"
-                echo $PATH
+               echo 'Something'
             }
         }
-        stage('Test') {
+        stage('Containerizing application') {
             steps {
-                echo 'Testing..'
+                sh ''' FROM python:3
+    
+                        ADD hello_world.py /
+
+                        RUN pip install flask
+
+                        CMD [ "python", "./hello_world.py" ]
+                   '''
             }
         }
         stage('Deploy') {
