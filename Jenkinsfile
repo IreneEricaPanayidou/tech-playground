@@ -4,19 +4,19 @@ pipeline {
     stages {
         stage('Find app') {
             steps {
-                sh "
+                sh """
                 #!/bin/bash -le
                 echo $pwd
                 ls -la
-                "
+                """
             }
         }
         stage('Test') {
             steps {
-                sh "
+                sh """
                 #!/bin/bash -le
                 docker build -t trg-test .
-                "
+                """
             }
         }
         stage('Deploy') {
