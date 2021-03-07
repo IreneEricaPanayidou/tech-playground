@@ -1,12 +1,25 @@
-def PATH
 pipeline {
-    agent {
-    dockerfile true
-    }
+    agent any
+
     stages {
-        stage('Example') {
+        stage('Find app') {
             steps {
-              echo 'Hello World'
+                sh "echo $pwd
+                ls -la
+                "
+            }
+        }
+        stage('Test') {
+            steps {
+                sh "
+                #!/bin/bash -le
+                docker build -t trg-test .
+                "
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
