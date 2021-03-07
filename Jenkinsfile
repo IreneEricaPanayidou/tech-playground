@@ -1,22 +1,12 @@
 def PATH
 pipeline {
-    agent any
-    
+    agent {
+    dockerfile true
+    }
     stages {
-        stage('Find app') {
+        stage('Example') {
             steps {
-               echo 'Something'
-            }
-        }
-        stage('Containerizing application') {
-            steps {
-                sh '''  docker build -t trg-assignment .
-                   '''
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+              echo 'Hello World'
             }
         }
     }
