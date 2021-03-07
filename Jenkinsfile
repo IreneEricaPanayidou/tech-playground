@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('Find app') {
             steps {
-                sh "echo $pwd
+                sh "
+                #!/bin/bash -le
+                echo $pwd
                 ls -la
                 "
             }
